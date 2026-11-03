@@ -110,13 +110,23 @@ stay consistent with the existing formatting.
 Every class, method, function, constant and field should have a doc block. It contains a summary, an optional body and
 the parameter and return value descriptions.
 
-The summary line says what the thing is or does. Body paragraphs, if any, explain behaviour that is not obvious. A doc
-block should rarely have more than three lines beyond its summary.
+Purpose, not procedure. The summary line says what the thing is or does, from the view of its caller, in the words
+of the domain. It does not list the steps the code takes.  Ask "Why would someone call this?" and answer that question.
+One verb that names the effect ("Label", "Fill", "Check") is better than a chain of steps ("write X, then add Y to Z").
+
+Body paragraphs, if any, explain behaviour that is not obvious. A doc block should rarely have more than three lines
+beyond its summary.
+
+Do not repeat what the code already describes. Elements, attributes, properties or other parts that are in the body
+are useless repetition and should be removed.
 
 A doc block must stand on its own: no "see the docs", no pointer to another file or a ticket, no reliance on the
 comment above it. Spec and RFC names are facts about behaviour and may stay.
 
 Avoid using markup (like markdown or HTML) in the doc block.
+
+Parameters and return hints should have a short explanation that make it clearer what to pass in. Omit the
+explanation if the variable name is already 100% clear.
 
 ## Inline comments
 
